@@ -1,36 +1,46 @@
 
+HOL 02: Deploying a hybrid infrastructure for researchers in AWS
+======
 
-## HOL 02: Deploying a hybrid infrastructure for researchers in AWS
+
+##### HIGH-PERFORMANCE AND DISTRIBUTED COMPUTING FOR BIG DATA
 
 
+#### **Miguel Baidal Marco**
 
-1. configuration of the VPC, subnets, route tables, security groups, and EC2 instances.
+---
 
-I've created a VPC called HOL02-VPC with the address range 10.0.0.0/16.
+$~~~~~~~~~~~$
 
-![Captura de pantalla 2024-03-25 143302](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/11972151-05df-4456-b4ed-dc5f8f4b6812)
+#### 1. VPC, subnets, route tables, security groups, and EC2 instances configuration
 
-Within this VPC, I've set up three subnets named HOL02-DMZ, HOL02-Production, and HOL02-Research, with the IP ranges demanded in the exercise. I only include the screenshot of the creation of one of the three subnets.
+Fistly, I've created a VPC called HOL02-VPC with the address range 10.0.0.0/16.
 
-![Captura de pantalla 2024-03-25 143722](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/7b6986a6-6662-4d48-84bb-ddf3472e918c)
+![HOL02-VPC creation](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/11972151-05df-4456-b4ed-dc5f8f4b6812)
 
-![Captura de pantalla 2024-03-25 143950](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/d6b813f5-ba5d-4143-9f6d-9c6798f104f8)
+In this VPC, I've established three subnets referred to as HOL02-DMZ, HOL02-Production, and HOL02-Research, each configured with the required IP ranges as specified in the exercise.
 
-Afterwards, I've created an Internet Gateway named HOL02-IGW and attached it to the HOL02-VPC so that it can connect to the internet.
+However, I've only included a screenshot illustrating the creation process of one of the three subnets.
 
-![Captura de pantalla 2024-03-25 144839](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/5b08dcc6-4782-4e19-962a-cee4e387917b)
+![HOL02-DMZ creation steps](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/7b6986a6-6662-4d48-84bb-ddf3472e918c)
 
-![Captura de pantalla 2024-03-25 144925](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/b95bbd3b-0ac1-4f9d-8939-4cf5bbe074be)
+![The three subnets listed](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/d6b813f5-ba5d-4143-9f6d-9c6798f104f8)
+
+Following that, I set up an Internet Gateway called HOL02-IGW and linked it to the HOL02-VPC, enabling connectivity to the internet.
+
+![Internet Gateway creation](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/5b08dcc6-4782-4e19-962a-cee4e387917b)
+
+![VPC - Internet Gateway linking](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/b95bbd3b-0ac1-4f9d-8939-4cf5bbe074be)
 
 Then, I've established three route tables: HOL02-DMZ-RT, HOL02-Production-RT, and HOL02-Research-RT.
 
-![Captura de pantalla 2024-03-25 145049](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/a7c3fdda-256c-4452-936d-e7fdc0b9bf5b)
+![HOL02-DMZ-RT creation](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/a7c3fdda-256c-4452-936d-e7fdc0b9bf5b)
 
-![Captura de pantalla 2024-03-25 145358](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/363fe5db-3760-452b-906b-3e8cb615fcc4)
+![The three route tables listed](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/363fe5db-3760-452b-906b-3e8cb615fcc4)
 
 Each route table is associated with its respective subnet.
 
-![Captura de pantalla 2024-03-25 145154](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/fc553448-551d-40a2-ae68-2f88e00c1cf5)
+![Route table and subnets association](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/fc553448-551d-40a2-ae68-2f88e00c1cf5)
 
 Later, I've configured three security groups:
 - HOL02-DMZ-SG, that allows traffic on ports 22, 443, 943, 945, and 1194.
