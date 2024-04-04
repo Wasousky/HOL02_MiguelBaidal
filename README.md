@@ -74,6 +74,7 @@ Finally, I've created an S3 bucket named HOL02-Notebooks. All the notebooks used
 
 ![Captura de pantalla 2024-04-02 151731](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/6823cdad-4d1a-480f-96b5-34b073dfb76b)
 
+![Captura de pantalla 2024-04-04 170545](https://github.com/Wasousky/HOL02_MiguelBaidal/assets/92041194/8636833a-8790-4665-9a51-6a0f3e77a497)
 
 
 2. Import your public key to AWS EC2 and name it HOL02.
